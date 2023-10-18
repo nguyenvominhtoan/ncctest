@@ -11,7 +11,7 @@ body {
   margin: auto;
   font-size: var(--fs-body);
   line-height: var(--lh-body);
-  overflow: hidden;
+  overflow-x: hidden;
   overflow-y: scroll;
   background-color: var(--bg-cl);
   display: flex;
