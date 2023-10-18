@@ -1,0 +1,256 @@
+.sidebar {
+  width: 150px;
+  height: 100vh;
+  background: #191718;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+
+  a {
+    padding-top: 14px;
+    padding-bottom: 11px;
+    padding-left: 16px;
+    width: 150px;
+    height: 44px;
+    border-bottom: 0.5px solid gray;
+    font-family: r2;
+    &:hover {
+      background: #5c5c5c;
+      color: #fff;
+      @include transition(0.3s);
+    }
+  }
+  @include sm {
+    display: none;
+  }
+}
+.btnmenu {
+  width: 45px;
+  height: 45px;
+  background: #000;
+  border-radius: 1000px;
+  /* right: -127px; */
+  /* top: -35px; */
+  position: absolute;
+  margin: 10px;
+  cursor: pointer;
+  display: none;
+  z-index: 300;
+  @include xs {
+    display: block;
+  }
+  span {
+    width: 25px;
+    height: 2px;
+    left: 25%;
+    display: block;
+    content: "";
+    // width: 100%;
+    // height: 2px;
+    top: 50%;
+    background-color: var(--white-cl);
+    position: absolute;
+    @include transform(translateY(-50%));
+    @include transition(0.3s);
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: 25%;
+    top: 30%;
+    display: block;
+    content: "";
+    width: 25px;
+    height: 2px;
+    background-color: var(--white-cl);
+    @include transform(rotate(0deg) translateY(0px));
+    @include transition(0.3s);
+  }
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    top: 65%;
+    left: 25%;
+  }
+
+  &.active {
+    &::before {
+      transform: (rotate(45deg) translate(6px, 6px));
+      @include transition(0.3s);
+    }
+
+    &::after {
+      transform: (rotate(-45deg) translate(6px, -6px));
+      @include transition(0.3s);
+    }
+
+    span {
+      opacity: 0;
+      @include transition(0.3s);
+    }
+  }
+}
+.hero {
+  padding-top: 19px;
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__logo {
+    width: 310px;
+    height: 122px;
+    margin-bottom: 26px;
+    @include xxs {
+      height: initial;
+      width: 140px;
+    }
+    @include xxxs {
+      margin-left: -65px;
+    }
+  }
+  &__content {
+    aspect-ratio: 1510/210;
+    background: #efefef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include xs {
+      width: 709px;
+      height: 210px;
+    }
+    @include xxs {
+      width: 508px;
+    }
+    @include xxxs {
+      background: none;
+      max-width: initial;
+      margin-left: -60px;
+    }
+    &-title {
+      color: #000;
+      font-family: r2;
+      font-size: 18px;
+      margin-bottom: 16px;
+      @include xxs {
+        margin-bottom: initial;
+      }
+    }
+    &-des {
+      padding: 0 269px;
+      height: 95px;
+      color: #000;
+      text-align: center;
+      font-family: r8;
+      font-size: 16px;
+      @include lg {
+        padding: 0px 80px;
+        font-size: 15px;
+      }
+      @include sm {
+        height: 135px;
+        font-size: 15px;
+      }
+      @include xs {
+        width: 700px;
+        padding: initial;
+      }
+      @include xxxs {
+        margin-left: -100px;
+        text-align: left;
+        width: initial;
+      }
+      p {
+        max-width: 972px;
+        @include xxs {
+          white-space: pre-wrap;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+.project {
+  margin-top: 40px;
+  // padding-bottom: 200px;
+  &__list {
+    @include sm {
+      display: flex;
+      flex-direction: column;
+    }
+    &-item {
+      &:nth-child(2),
+      &:nth-child(3) {
+        margin-right: 40px;
+      }
+      .title {
+        @include xxs {
+          font-size: 18px;
+        }
+      }
+      @include xs {
+        margin-bottom: 20px;
+      }
+      @include xxs {
+        margin-bottom: -40px;
+      }
+      @include xxxs {
+        margin-bottom: 40px;
+        max-width: 310px;
+      }
+      @include lg {
+        p {
+          font-size: 13px;
+        }
+      }
+      @include sm {
+        p {
+          font-size: 15px;
+        }
+      }
+      @include xxs {
+        p {
+          font-size: 14px;
+        }
+      }
+      @include xxxs {
+        p {
+          font-size: 12px;
+        }
+      }
+
+      .content {
+        @include xxxs {
+          display: flex;
+          flex-direction: column;
+        }
+        &__img {
+          @include sm {
+            height: 107px;
+          }
+          @include xxs {
+            height: 83px;
+          }
+          @include xxxs {
+            margin-bottom: 10px;
+          }
+        }
+        &__des {
+          @include sm {
+            font-size: 15px;
+          }
+          @include xxs {
+            font-size: 14px;
+          }
+          @include xxxs {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

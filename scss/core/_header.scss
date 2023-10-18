@@ -1,0 +1,137 @@
+/* Header */
+.header {
+  background-color: var(--white-cl);
+  width: 100vw;
+  height: var(--height-header);
+  transition: var(--time-transition) background;
+  position: fixed;
+  border-bottom: 0.5px solid gray;
+  top: 0;
+  z-index: 200;
+
+  @include transition(0.3s);
+  text-transform: uppercase;
+  &.--bg-header {
+    background: var(--bg-cl);
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    font-family: monospace;
+    @include xs {
+      flex-direction: initial;
+    }
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+      margin-left: 10px;
+      font-family: rb5;
+    }
+  }
+  &__menu {
+    display: flex;
+    transform: translateX(-50%);
+    letter-spacing: 2px;
+
+    li {
+      list-style: none;
+      a {
+        position: relative;
+        font-family: dmsan;
+        text-decoration: none;
+        color: #000;
+        font-size: var(--text-menu);
+        letter-spacing: var(--ls-menu);
+        margin: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        margin-right: 10px;
+        @include transition(var(--duration));
+
+        &::before {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 1px;
+          background-color: var(--white-cl);
+          position: absolute;
+          bottom: 5px;
+          transform: translateX(-50%) scaleX(0);
+          @include transform(scaleX(0));
+          // transition: var(--duration) transform, var(--duration) background-color;
+          transition-duration: 0.3s;
+          @include transform-origin(right);
+          opacity: 0;
+          visibility: hidden;
+        }
+        &.active,
+        &:hover {
+          &::before {
+            @include transform(scaleX(1));
+            @include transform-origin(left);
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+  &__btn {
+    span {
+      width: 25px;
+      height: 2px;
+      background: #000;
+      display: block;
+      content: "";
+      top: 50%;
+      // position: absolute;
+      @include transform(translateY(-50%));
+      @include transition(0.3s);
+    }
+
+    &::before,
+    &::after {
+      z-index: 400;
+      position: absolute;
+      top: 42%;
+      display: block;
+      content: "";
+      width: 25px;
+      height: 2px;
+      background: #000;
+      @include transform(rotate(0deg) translateY(0px));
+      @include transition(0.3s);
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      top: 55%;
+    }
+
+    &.active {
+      &::before {
+        transform: (rotate(45deg) translate(4px, 2px));
+        @include transition(0.3s);
+      }
+
+      &::after {
+        transform: (rotate(-46deg) translate(6px, -5px));
+        @include transition(0.3s);
+      }
+
+      span {
+        opacity: 0;
+        @include transition(0.3s);
+      }
+    }
+  }
+}

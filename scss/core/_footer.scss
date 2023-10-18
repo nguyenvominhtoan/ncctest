@@ -1,0 +1,44 @@
+footer {
+  padding-top: 200px;
+  position: absolute;
+  bottom: 0;
+  @include sm {
+    bottom: -101%;
+  }
+  @include xs {
+    bottom: -118%;
+  }
+  @include xxs {
+    bottom: -80%;
+  }
+  @include xxxs {
+    white-space: nowrap;
+    bottom: -117%;
+  }
+  .container {
+    z-index: 1;
+    width: 100vw;
+    height: 79px;
+    border-top: 1px solid #dedede;
+    p {
+      font-family: r8;
+      color: #3e3e3e;
+      font-size: 16px;
+      font-weight: 400;
+      padding: 30px 129px;
+      @include lg {
+        padding: 25px 169px;
+      }
+      @include xs {
+        font-size: 14px;
+      }
+      @include xxs {
+        font-size: 13px;
+      }
+      @include xxxs {
+        padding: 25px 60px;
+        font-size: 12px;
+      }
+    }
+  }
+}
